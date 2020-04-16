@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /root/9Hits/
+cd /usr/local/tmpfs/9Hits/
 if [[ $EUID -ne 0 ]]; then
     whiptail --title "ERROR" --msgbox "This script must be run as root" 8 78
     exit
@@ -13,18 +13,18 @@ else
     )
     case $os in
         "1)")
-            crontab /root/9Hits/crontab
+            crontab /usr/local/tmpfs/9Hits/crontab
             echo "All right"
             ;;
         "2)")
             crontab -r
-            /root/9Hits/kill.sh
+            /usr/local/tmpfs/9Hits/kill.sh
             echo "All right"
             ;;
         "3)")
             crontab -r
-            /root/9Hits/kill.sh
-            rm /root/9Hits/9HitsViewer_x64/sessions/156288217488*
+            /usr/local/tmpfs/9Hits/kill.sh
+            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/156288217488*
  token=$(whiptail --inputbox "Enter your TOKEN" 8 78 --title "TOKEN" 3>&1 1>&2 2>&3)
             tokenstatus=$?
             if [ $tokenstatus = 0 ]; then
@@ -43,22 +43,22 @@ else
             )
             case $option in
                 "1)")
-                    cronvar="1,31 * * * * /root/9Hits/kill.sh"
+                    cronvar="1,31 * * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "2)")
-                    cronvar="1 * * * * /root/9Hits/kill.sh"
+                    cronvar="1 * * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "3)")
-                    cronvar="1 1,3,5,7,9,11,13,15,17,19,21,23 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,3,5,7,9,11,13,15,17,19,21,23 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "4)")
-                    cronvar="1 1,7,13,19 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,7,13,19 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "5)")
-                    cronvar="1 1,13 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,13 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "6)")
-                    cronvar="1 1 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
             esac
             option=$(whiptail --title "How much sessions you want" --menu "Choose an option" 16 100 9 \
@@ -121,7 +121,7 @@ else
             isproxy=false
             for i in `seq 1 $number`;
             do
-                file="/root/9Hits/9HitsViewer_x64/sessions/156288217488$i.txt"
+                file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/156288217488$i.txt"
 cat > $file <<EOFSS
 {
   "token": "$token",
@@ -137,29 +137,28 @@ EOFSS
                 isproxy=true
                 proxytype=ssh
             done
-            cronfile="/root/9Hits/crontab"
+            cronfile="/usr/local/tmpfs/9Hits/crontab"
 cat > $cronfile <<EOFSS
-* * * * * /root/9Hits/crashdetect.sh
+* * * * * /usr/local/tmpfs/9Hits/crashdetect.sh
 $cronvar
-58 23 * * * /root/9Hits/reboot.sh
+58 23 * * * /usr/local/tmpfs/9Hits/reboot.sh
 EOFSS
             crontab crontab
             ;;
         "4)")
             crontab -r
-            /root/9Hits/kill.sh
-            rm -R /root/9Hits/
+            /usr/local/tmpfs/9Hits/kill.sh
+            rm -R /usr/local/tmpfs/9Hits/
             echo "All right"
             ;;
         "5)")
             cronbta -r
-            /root/9Hits/kill.sh
-            cd /root/9Hits/9HitsViewer_x64
+            /usr/local/tmpfs/9Hits/kill.sh
+            cd /usr/local/tmpfs/9Hits/9HitsViewer_x64
             rm 9hbrowser 9hmultiss 9hviewer
             wget http://f.9hits.com/9hviewer/9h-patch-linux-x64.zip
             unzip 9h-patch-linux-x64.zip
-            crontab /root/9Hits/crontab
+            crontab /usr/local/tmpfs/9Hits/crontab
             echo "All right"
             ;;
     esac
-fi

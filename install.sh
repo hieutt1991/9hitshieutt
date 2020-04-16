@@ -1,6 +1,9 @@
 #!/bin/bash
-mkdir /root/9Hits/
-cd /root/9Hits/
+mkdir -p /usr/local/tmpfs
+chmod 777 /usr/local/tmpfs
+mount -t tmpfs -o size=4G tmpfs /usr/local/tmpfs
+mkdir /usr/local/tmpfs/9Hits/
+cd /usr/local/tmpfs/9Hits/
 if [[ $EUID -ne 0 ]]; then
     whiptail --title "ERROR" --msgbox "This script must be run as root" 8 78
     exit
@@ -28,7 +31,7 @@ else
         token=$2
         number=1
         cpumax=100
-        cronvar="1,31 * * * * /root/9Hits/kill.sh"
+        cronvar="1,31 * * * * /usr/local/tmpfs/9Hits/kill.sh"
     else
         if [[ $1 -eq 1 ]]; then
             os=$(whiptail --title "What Linux Distro do you have?" --menu "Choose an option" 16 100 9 \
@@ -79,22 +82,22 @@ else
             )
             case $option in
                 "1)")
-                    cronvar="1,31 * * * * /root/9Hits/kill.sh"
+                    cronvar="1,31 * * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "2)")
-                    cronvar="1 * * * * /root/9Hits/kill.sh"
+                    cronvar="1 * * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "3)")
-                    cronvar="1 1,3,5,7,9,11,13,15,17,19,21,23 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,3,5,7,9,11,13,15,17,19,21,23 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "4)")
-                    cronvar="1 1,7,13,19 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,7,13,19 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "5)")
-                    cronvar="1 1,13 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,13 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "6)")
-                    cronvar="1 1 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
             esac
             option=$(whiptail --title "How much sessions you want" --menu "Choose an option" 16 100 9 \
@@ -181,22 +184,22 @@ else
                     cpumax=$4
                     case $5 in
                 "1")
-                    cronvar="1,31 * * * * /root/9Hits/kill.sh"
+                    cronvar="1,31 * * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "2")
-                    cronvar="1 * * * * /root/9Hits/kill.sh"
+                    cronvar="1 * * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "3")
-                    cronvar="1 1,3,5,7,9,11,13,15,17,19,21,23 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,3,5,7,9,11,13,15,17,19,21,23 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "4")
-                    cronvar="1 1,7,13,19 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,7,13,19 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "5")
-                    cronvar="1 1,13 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1,13 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 "6")
-                    cronvar="1 1 * * * /root/9Hits/kill.sh"
+                    cronvar="1 1 * * * /usr/local/tmpfs/9Hits/kill.sh"
                     ;;
                 esac
                 else
@@ -219,11 +222,11 @@ else
     fi
     wget http://f.9hits.com/9hviewer/9hviewer-linux-x64.tar.bz2
     tar -xjvf 9hviewer-linux-x64.tar.bz2
-    cd /root/9Hits/9HitsViewer_x64/sessions/
+    cd /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/
     isproxy=false
     for i in `seq 1 $number`;
     do
-        file="/root/9Hits/9HitsViewer_x64/sessions/156288217488$i.txt"
+        file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/156288217488$i.txt"
 cat > $file <<EOFSS
 {
   "token": "$token",
@@ -241,16 +244,16 @@ EOFSS
         isproxy=true
         proxytype=ssh
     done
-    cronfile="/root/9Hits/crontab"
+    cronfile="/usr/local/tmpfs/9Hits/crontab"
 cat > $cronfile <<EOFSS
-* * * * * /root/9Hits/crashdetect.sh
+* * * * * /usr/local/tmpfs/9Hits/crashdetect.sh
 $cronvar
-58 23 * * * /root/9Hits/reboot.sh
+58 23 * * * /usr/local/tmpfs/9Hits/reboot.sh
 EOFSS
     cd /root
-    mv 9Hits-AutoInstall/* /root/9Hits/
-    cd /root/9Hits/
+    mv /usr/local/tmpfs/9Hits-AutoInstall/* /usr/local/tmpfs/9Hits/
+    cd /usr/local/tmpfs/9Hits/
     crontab crontab
-    chmod 777 -R /root/9Hits/
+    chmod 777 -R /usr/local/tmpfs/9Hits/
     exit
 fi
