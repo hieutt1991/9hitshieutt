@@ -251,7 +251,7 @@ $cronvar
 58 23 * * * /usr/local/tmpfs/9Hits/reboot.sh
 EOFSS
     cd /root
-    mv /usr/local/tmpfs/9Hits-AutoInstall/* /usr/local/tmpfs/9Hits/
+    mv /usr/local/tmpfs/9hitshieutt/* /usr/local/tmpfs/9Hits/
     cd /usr/local/tmpfs/9Hits/
     crontab crontab
     chmod 777 -R /usr/local/tmpfs/9Hits/
