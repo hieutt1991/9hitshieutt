@@ -1,7 +1,4 @@
 #!/bin/bash
-mkdir -p /usr/local/tmpfs
-chmod 777 /usr/local/tmpfs
-mount -t tmpfs -o size=4G tmpfs /usr/local/tmpfs
 mkdir /usr/local/tmpfs/9Hits/
 cd /usr/local/tmpfs/9Hits/
 if [[ $EUID -ne 0 ]]; then
