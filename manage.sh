@@ -156,7 +156,8 @@ EOFSS
             /usr/local/tmpfs/9Hits/kill.sh
             cd /usr/local/tmpfs/9Hits/9HitsViewer_x64
             rm 9hbrowser 9hmultiss 9hviewer
-            wget http://f.9hits.com/9hviewer/9h-patch-linux-x64.zip
+            #wget http://f.9hits.com/9hviewer/9h-patch-linux-x64.zip
+	    wget http://f.9hits.com/9hviewer/2.4.5/9h-patch-linux-x64.zip
             unzip 9h-patch-linux-x64.zip
             crontab /usr/local/tmpfs/9Hits/crontab
             echo "All right"
