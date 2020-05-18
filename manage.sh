@@ -141,7 +141,7 @@ EOFSS
 cat > $cronfile <<EOFSS
 * * * * * /usr/local/tmpfs/9Hits/crashdetect.sh
 $cronvar
-58 23 * * * /usr/local/tmpfs/9Hits/reboot.sh
+0 0 * * * /usr/local/tmpfs/9Hits/echo.sh
 EOFSS
             crontab crontab
             ;;
