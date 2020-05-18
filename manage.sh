@@ -159,6 +159,8 @@ EOFSS
             #wget http://f.9hits.com/9hviewer/9h-patch-linux-x64.zip
 	    wget http://f.9hits.com/9hviewer/2.4.5/9h-patch-linux-x64.zip
             unzip 9h-patch-linux-x64.zip
+	    cd /usr/local/tmpfs/9Hits
+	    rm -rf 9hviewer-linux-x64*
             crontab /usr/local/tmpfs/9Hits/crontab
             echo "All right"
             ;;
