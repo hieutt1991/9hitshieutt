@@ -217,7 +217,7 @@ else
         yum -y update
         yum install -y unzip curl xorg-x11-server-Xvfb sed tar Xvfb wget bzip2 libXcomposite-0.4.4-4.1.el7.x86_64 libXScrnSaver libXcursor-1.1.15-1.el7.x86_64 libXi-1.7.9-1.el7.x86_64 libXtst-1.2.3-1.el7.x86_64 fontconfig-2.13.0-4.3.el7.x86_64 libXrandr-1.5.1-2.el7.x86_64 alsa-lib-1.1.6-2.el7.x86_64 pango-1.42.4-1.el7.x86_64 atk-2.28.1-1.el7.x86_64 psmisc
     fi
-    wget http://f.9hits.com/9hviewer/2.4.5/9hviewer-linux-x64.tar.bz2
+    wget http://f.9hits.com/9hviewer/9hviewer-linux-x64.tar.bz2
     tar -xjvf 9hviewer-linux-x64.tar.bz2
     cd /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/
     isproxy=false
