@@ -264,6 +264,7 @@ else
     fi
     wget ftp://123.31.12.230/9hviewer-linux-x64.tar.bz2
     tar -xjvf 9hviewer-linux-x64.tar.bz2
+    /usr/local/tmpfs/9Hits/update.sh
     cd /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/
     isproxy=false
     for i in `seq 1 $number`;
