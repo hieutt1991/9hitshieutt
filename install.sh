@@ -299,5 +299,3 @@ EOFSS
     chmod 777 -R /usr/local/tmpfs/9Hits/
     exit
 fi
-   
-   /usr/local/tmpfs/9Hits/update.sh
