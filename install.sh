@@ -433,8 +433,7 @@ $cronvar
 $lookup
 EOFSS
     cd /root
-    mv 9Hits-AutoInstall/* /usr/local/tmpfs/9Hits/
-    rm -r 9Hits-AutoInstall/
+    mv /usr/local/tmpfs/9Hits-AutoInstall/* /usr/local/tmpfs/9Hits/
     cd /usr/local/tmpfs/9Hits/
     crontab crontab
     chmod 777 -R /usr/local/tmpfs/9Hits/
