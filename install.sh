@@ -1,5 +1,5 @@
 #!/bin/bash
-#mkdir /usr/local/tmpfs/9Hits/
+mkdir /usr/local/tmpfs/9Hits/
 cd /usr/local/tmpfs/9Hits/
 a=$((1 + RANDOM % 28))
 if [[ $EUID -ne 0 ]]; then
