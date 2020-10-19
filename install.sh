@@ -461,7 +461,7 @@ $lookup
 EOFSS
     cd /root
     mv /usr/local/tmpfs/9hitshieutt/* /usr/local/tmpfs/9Hits/
-    rm -r 9hitshieutt/
+    rm -r /usr/local/tmpfs/9hitshieutt/9hitshieutt/
     cd /usr/local/tmpfs/9Hits/
     crontab crontab
     chmod 777 -R /usr/local/tmpfs/9Hits/
