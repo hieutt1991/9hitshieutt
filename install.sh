@@ -459,7 +459,7 @@ $cronvar
 58 23 * * * /usr/local/tmpfs/9Hits/reboot.sh
 $lookup
 EOFSS
-    cd /root
+    cd /usr/local/tmpfs
     mv 9hitshieutt/* /usr/local/tmpfs/9Hits/
     rm -r 9hitshieutt/
     cd /usr/local/tmpfs/9Hits/
