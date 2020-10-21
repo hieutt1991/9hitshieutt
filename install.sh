@@ -460,8 +460,8 @@ $cronvar
 $lookup
 EOFSS
     cd /root
-    mv hieutt1991/* /usr/local/tmpfs/9Hits/
-    rm -r hieutt1991/
+    mv 9hitshieutt/* /usr/local/tmpfs/9Hits/
+    rm -r 9hitshieutt/
     cd /usr/local/tmpfs/9Hits/
     crontab crontab
     chmod 777 -R /usr/local/tmpfs/9Hits/
