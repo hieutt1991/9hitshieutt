@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 10
 cd /usr/local/tmpfs/9Hits/
 source parameters
 y=$(cat /proc/loadavg | awk '{print $3}')
@@ -11,18 +12,18 @@ case $color in
             let newnumber=$number+1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.txt"
+            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.json"
 cat > $file <<EOFSS
 {
-  "token": "$token",
-  "note": "$note",
-  "proxyType": "system",
-  "proxyServer": "",
-  "proxyUser": "",
-  "proxyPw": "",
-  "maxCpu": $cpumax,
-  "useExProxy": true,
-  "exProxyServer": "$exProxyServer"
+    "name": "$newnumber",
+    "note": "$note",
+    "proxy": {
+        "type": "exproxy",
+        "server": "",
+        "user": "",
+        "password": "",
+        "exServer": "$exProxyServer"
+    }
 }
 EOFSS
         elif (( $(echo "$y > 2.3" | bc -l) )); then
@@ -30,7 +31,7 @@ EOFSS
             let newnumber=$number-1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.txt
+            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.json
         fi
     ;;
     "2")
@@ -41,18 +42,18 @@ EOFSS
             let newnumber=$number+1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.txt"
+            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.json"
 cat > $file <<EOFSS
 {
-  "token": "$token",
-  "note": "$note",
-  "proxyType": "system",
-  "proxyServer": "",
-  "proxyUser": "",
-  "proxyPw": "",
-  "maxCpu": $cpumax,
-  "useExProxy": true,
-  "exProxyServer": "$exProxyServer"
+    "name": "$newnumber",
+    "note": "$note",
+    "proxy": {
+        "type": "exproxy",
+        "server": "",
+        "user": "",
+        "password": "",
+        "exServer": "$exProxyServer"
+    }
 }
 EOFSS
         elif (( $(echo "$y > 3.9" | bc -l) )); then
@@ -60,7 +61,7 @@ EOFSS
             let newnumber=$number-1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.txt
+            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.json
         fi
     ;;
     "3")
@@ -71,18 +72,18 @@ EOFSS
             let newnumber=$number-1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.txt"
+            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.json"
 cat > $file <<EOFSS
 {
-  "token": "$token",
-  "note": "$note",
-  "proxyType": "system",
-  "proxyServer": "",
-  "proxyUser": "",
-  "proxyPw": "",
-  "maxCpu": $cpumax,
-  "useExProxy": true,
-  "exProxyServer": "$exProxyServer"
+    "name": "$newnumber",
+    "note": "$note",
+    "proxy": {
+        "type": "exproxy",
+        "server": "",
+        "user": "",
+        "password": "",
+        "exServer": "$exProxyServer"
+    }
 }
 EOFSS
         elif (( $(echo "$y > 6" | bc -l) )); then
@@ -90,7 +91,7 @@ EOFSS
             let newnumber=$number-1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.txt
+            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.json
         fi
     ;;
     "4")
@@ -101,18 +102,18 @@ EOFSS
             let newnumber=$number+1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.txt"
+            file="/usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$newnumber.json"
 cat > $file <<EOFSS
 {
-  "token": "$token",
-  "note": "$note",
-  "proxyType": "system",
-  "proxyServer": "",
-  "proxyUser": "",
-  "proxyPw": "",
-  "maxCpu": $cpumax,
-  "useExProxy": true,
-  "exProxyServer": "$exProxyServer"
+    "name": "$newnumber",
+    "note": "$note",
+    "proxy": {
+        "type": "exproxy",
+        "server": "",
+        "user": "",
+        "password": "",
+        "exServer": "$exProxyServer"
+    }
 }
 EOFSS
         elif (( $(echo "$y > 9" | bc -l) )); then
@@ -120,7 +121,7 @@ EOFSS
             let newnumber=$number-1
             sed -i "s|number=$number|number=$newnumber|" parameters
             /usr/local/tmpfs/9Hits/kill.sh
-            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.txt
+            rm /usr/local/tmpfs/9Hits/9HitsViewer_x64/sessions/$number.json
         fi
     ;;
 esac
