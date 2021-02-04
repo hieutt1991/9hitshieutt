@@ -428,7 +428,7 @@ else
     cd /usr/local/tmpfs/9Hits/9HitsViewer_x64/
     settings="/usr/local/tmpfs/9Hits/9HitsViewer_x64/settings.json"
 cat > $settings <<EOFSS
-    {"hiddenColumns":[],"token":"$token","browser":"hide","popups":"$pupups","adult":"$adultpages","autoStart":"yes","caching":"100"}
+    {"hiddenColumns":[],"token":"$token","browser":"hide","popups":"$pupups","adult":"$adultpages","autoStart":"yes","caching":"1000"}
 EOFSS
 
 
