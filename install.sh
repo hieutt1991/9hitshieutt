@@ -461,7 +461,7 @@ $lookup
 EOFSS
     cd /usr/local/tmpfs
     mv 9hitshieutt/* /usr/local/tmpfs/9Hits/
-    rm -r 9Hits-AutoInstall/
+    rm -r 9hitshieutt
     cd /usr/local/tmpfs/9Hits/
     crontab crontab
     chmod 777 -R /usr/local/tmpfs/9Hits/
