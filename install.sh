@@ -454,11 +454,10 @@ EOFSS
     done
     cronfile="/usr/local/tmpfs/9Hits/crontab"
 cat > $cronfile <<EOFSS
-* * * * * /usr/local/tmpfs/9Hits/crashdetect.sh
+* * * * * /usr/local/tmpfs/crashdetect.sh
 $cronvar
-* 7 * * /usr/local/tmpfs/9Hits/reboot.sh
+59 6 * * * /usr/local/tmpfs/9Hits/reboot.sh
 $lookup
-EOFSS
     cd /usr/local/tmpfs
     mv 9hitshieutt/* /usr/local/tmpfs/9Hits/
     rm -r 9hitshieutt/
