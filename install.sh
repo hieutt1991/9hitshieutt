@@ -428,7 +428,7 @@ else
     cd /usr/local/tmpfs/9Hits/9HitsViewer_x64/
     settings="/usr/local/tmpfs/9Hits/9HitsViewer_x64/settings.json"
 cat > $settings <<EOFSS
-    {"hiddenColumns":[],"token":"$token","browser":"hide","popups":"$pupups","adult":"$adultpages","autoStart":"yes"}
+    {"hiddenColumns":[],"token":"$token","browser":"hide","popups":"$pupups","adult":"$adultpages","autoStart":"yes","caching":"1000"}
 EOFSS
 
 
@@ -456,8 +456,9 @@ EOFSS
 cat > $cronfile <<EOFSS
 * * * * * /usr/local/tmpfs/crashdetect.sh
 $cronvar
-59 6 * * * /usr/local/tmpfs/9Hits/reboot.sh
+58 7 * * * /usr/local/tmpfs/reboot.sh
 $lookup
+EOFSS
     cd /usr/local/tmpfs
     mv 9hitshieutt/* /usr/local/tmpfs/9Hits/
     rm -r 9hitshieutt/
