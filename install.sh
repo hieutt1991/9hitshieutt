@@ -456,7 +456,7 @@ EOFSS
 cat > $cronfile <<EOFSS
 * * * * * /usr/local/tmpfs/9Hits/crashdetect.sh
 $cronvar
-58 23 * * * /usr/local/tmpfs/9Hits/reboot.sh
+* 7 * * /usr/local/tmpfs/9Hits/reboot.sh
 $lookup
 EOFSS
     cd /usr/local/tmpfs
