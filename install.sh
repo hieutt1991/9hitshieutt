@@ -458,7 +458,7 @@ cat > $cronfile <<EOFSS
 $cronvar
 58 6 * * * /usr/local/tmpfs/9Hits/reboot.sh
 $cronvar
-59 7 * * * /usr/local/tmpfs/9Hits/9hits.sh
+59 19 * * * /usr/local/tmpfs/9Hits/9hits.sh
 $lookup
 EOFSS
     cd /usr/local/tmpfs
